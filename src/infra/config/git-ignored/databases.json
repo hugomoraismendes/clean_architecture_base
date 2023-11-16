@@ -1,0 +1,6 @@
+{
+  "host": "mysql-8.2",
+  "username": "root",
+  "password": "PASSWORD",
+  "database": "z_clean_architecture"
+}

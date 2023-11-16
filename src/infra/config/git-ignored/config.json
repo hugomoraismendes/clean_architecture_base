@@ -1,0 +1,57 @@
+{
+  "log": {
+    "level": "trace",
+    "stream": "app_logs"
+  },
+  "httpServer": {
+    "port": 80
+  },
+  "opbServers": {
+    "auth": {
+      "url": "https://gn-open-banking-auth.m{{DEVELOPER_REGISTRATION}}.orp-1.colaboradores.labgerencianet.com.br",
+      "endpoints": []
+    },
+    "gateway": {
+      "url": "https://gn-open-banking-gateway.m{{DEVELOPER_REGISTRATION}}.orp-1.colaboradores.labgerencianet.com.br",
+      "endpoints": [
+        "https://api.opb.testegerencianet.com.br/open-banking/payments/v2/consents",
+        "https://api.opb.testegerencianet.com.br/open-banking/payments/v2/pix/payments",
+        "https://api.opb.testegerencianet.com.br/open-banking/payments/v3/consents",
+        "https://api.opb.testegerencianet.com.br/open-banking/payments/v3/pix/payments"
+      ]
+    },
+    "commons": {
+      "url": "https://gn-open-banking-commons.m{{DEVELOPER_REGISTRATION}}.orp-1.colaboradores.labgerencianet.com.br",
+      "endpoints": [
+        "https://pub.opb.testegerencianet.com.br/open-banking/discovery/v1/status",
+        "https://pub.opb.testegerencianet.com.br/open-banking/discovery/v1/outages",
+        "https://pub.opb.testegerencianet.com.br/open-banking/discovery/v2/status",
+        "https://pub.opb.testegerencianet.com.br/open-banking/discovery/v2/outages"
+      ]
+    }
+  },
+  "runscope": {
+    "url": {
+      "api": "https://api.runscope.com"
+    },
+    "accessToken": "90c132f3-7a6e-4613-bc60-8f17d5c96dac",
+    "environment": {
+      "gateway": {
+        "bucketId": "0963hjz21tjp",
+        "testId": "e2e82cb1-a2b9-4a9e-b907-816dfff2887f"
+      },
+      "auth": {
+        "bucketId": "0963hjz21tjp",
+        "testId": "0da6c05d-66b9-4030-9882-37c2696a6b5b"
+      },
+      "common": {
+        "bucketId": "0963hjz21tjp",
+        "testId": "f8376451-0788-4ca9-9006-c580a33a9e43"
+      },
+      "getCount": 46
+    }
+  },
+  "elastic": {
+    "url": "https://vpc-es-nivel1-6wmkgziyn247mqbcs4cclz6sxm.us-west-2.es.amazonaws.com/"
+  }
+}

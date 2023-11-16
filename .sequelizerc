@@ -1,0 +1,22 @@
+const path = require('path');
+const args = process.argv.slice(2);
+const fs = require('fs');
+
+let migrationFolder = 'main';
+
+args.forEach(function (arg) {
+  if (arg.startsWith('--env=')) {
+    migrationFolder = arg.replace('--env=', '');
+  }
+});
+
+const basePath = path.resolve(fs.existsSync('./src') ? './dist' : '');
+
+console.log(path.resolve(basePath, 'infra', 'db', 'mysql',  'migrations', migrationFolder));
+
+module.exports = {
+  'models-path': path.resolve(basePath, 'infra', 'db', 'mysql', 'models', migrationFolder),
+  'migrations-path': path.resolve(basePath, 'infra', 'db', 'mysql', 'migrations', migrationFolder),
+  'seeders-path': path.resolve(basePath, 'infra', 'db', 'mysql', 'seeders', migrationFolder),
+  'config': path.resolve(basePath, 'infra/config/migrations.js'),
+};

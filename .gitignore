@@ -1,0 +1,6 @@
+node_modules/
+tests/coverage/
+dist/
+dist*
+src/infra/config/config.json
+src/infra/config/databases.json
