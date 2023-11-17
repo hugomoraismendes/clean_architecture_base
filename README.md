@@ -11,13 +11,22 @@ O projeto está estruturado da seguinte forma:
 - **shared**: Contém funções compartilhadas que podem ser reaproveitadas pelo sistema.
 - **use-cases**: Contém todas as regras de negócio da aplicação. É encapsulada em módulos que contêm os interadores de casos de utilização e as respectivas portas (uma interface de gateway de casos de utilização específicos e/ou uma interface de apresentador de casos de utilização específicos)
 
-### Configurações iniciais
+### Criação do database
 
 Se você não tem um banco de dados MySql para este exemplo, execute o comando abaixo para subir um container.
 
 ```
-make database
+make database-setup
 ```
+
+Execute o comando abaixo para iniciar ou parar o MySql
+
+```
+make database-up
+make database-down
+```
+
+### Configurações iniciais
 
 Execute o comando abaixo para preparar o container para a execução desse projeto. Nessa etapa de preparação será inicializados a rede, porta e o armazenamento (volume)
 

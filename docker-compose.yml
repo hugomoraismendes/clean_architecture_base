@@ -20,7 +20,7 @@ services:
       target: dev
     # user: '1000:1000'
     environment:
-      - WATCH_FILES=${WATCH_FILES}
+      - NODE_TLS_REJECT_UNAUTHORIZED=0
     volumes:
       - '.:/application'
     # logging: *default-logging
