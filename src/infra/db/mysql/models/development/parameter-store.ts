@@ -7,7 +7,8 @@ import {
   PrimaryKey,
   Table,
   UpdatedAt,
-  DataType
+  DataType,
+  Unique
 } from 'sequelize-typescript';
 
 @Table({
@@ -28,6 +29,7 @@ export class ParameterStoreModel extends Model {
 
   @AllowNull(false)
   @Column(DataType.STRING(100))
+  @Unique
   declare key: string;
 
   @AllowNull(false)

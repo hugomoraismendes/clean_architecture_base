@@ -1,6 +1,6 @@
 const { execSync } = require('child_process');
 const fs = require('fs');
-const Sequelize = require('sequelize')
+const Sequelize = require('sequelize');
 
 const copyConfig = () => {
   console.log('\x1b[33m%s\x1b[0m', 'Copying config...');
@@ -18,17 +18,24 @@ const compile = () => {
 };
 
 const createDB = async () => {
-  const dbConfig = require('../src/infra/config/databases.json');
+  const dbConfig = require('../src/infra/config/databases.json').mysql.development;
+  delete dbConfig.database;
 
   console.log('\x1b[36m%s\x1b[0m', 'Creating database...');
-  const conn = new Sequelize(null, dbConfig.username, dbConfig.password, {
-    dialect: 'mysql',
-    host: 'mysql-8.2'
-  });
+  const conn = new Sequelize(null, dbConfig.username, dbConfig.password, dbConfig);
   await conn.query(
     `CREATE SCHEMA IF NOT EXISTS ${dbConfig.database} DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;`
   );
   await conn.close();
+
+  console.log('\x1b[36m%s\x1b[0m', 'Migrating...');
+  execSync('sequelize db:migrate --env=development');
+
+  if (!fs.existsSync('.setup')) {
+    console.log('\x1b[36m%s\x1b[0m', 'Seeders...');
+    execSync('sequelize db:seed:all --env=development');
+  }
+  execSync('echo "OK" > .setup');
 };
 
 (async () => {

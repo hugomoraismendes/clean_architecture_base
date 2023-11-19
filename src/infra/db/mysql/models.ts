@@ -1,6 +1,6 @@
 import SequelizeLib from 'sequelize';
 import { Config } from '@infra';
-import { ParameterStoreModel } from './models/parameter-store';
+import { ParameterStoreModel } from './models/development/parameter-store';
 import { ModelCtor, SequelizeOptions, Sequelize } from 'sequelize-typescript';
 
 const modelsMap = new Map<string, ModelCtor[]>();

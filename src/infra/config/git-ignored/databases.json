@@ -1,6 +1,24 @@
 {
-  "host": "mysql-8.2",
-  "username": "root",
-  "password": "PASSWORD",
-  "database": "z_clean_architecture"
+  "mysql": {
+     "development": {
+       "replication": {
+         "read": [
+           {
+             "host": "mysql-8.2"
+           }
+         ],
+         "write": {
+           "host": "mysql-8.2"
+         }
+       },
+       "username": "root",
+       "password": "PASSWORD",
+       "database": "z_clean_architecture",
+       "dialect": "mysql",
+       "pool": {
+         "min": 1,
+         "max": 10
+       }
+     }  
+   }
 }

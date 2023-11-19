@@ -4,3 +4,4 @@ dist/
 dist*
 src/infra/config/config.json
 src/infra/config/databases.json
+.setup
